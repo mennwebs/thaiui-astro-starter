@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HomeHero from '../components/HomeHero.astro';
+const title = 'ไทยยูไอ';
+const description = 'Starter Theme for Astro by Seed Webs';
+---
+
+<Layout title={title} description={description} headOverlay={true}>
+  <HomeHero />
+  <div>
+    <h2>S-GRID D2</h2>
+    <div class='s-grid -d2'>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mi nisi, blandit sit amet justo in, euismod
+        viverra augue. Cras et libero enim. Nullam tristique at lorem quis pellentesque. Etiam imperdiet lacus vehicula
+        ipsum aliquet, eu elementum mauris interdum. Nunc laoreet mollis faucibus. Aliquam non ligula. Suspendisse
+        dignissim non nunc eu hendrerit. Nulla consectetur diam leo, ut eleifend leo pellentesque ac. Donec in ante
+        vitae sem pretium malesuada sed sed ipsum. Curabitur sit amet dictum justo.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mi nisi, blandit sit amet justo in, euismod
+        viverra augue. Cras et libero enim. Nullam tristique at lorem quis pellentesque. Etiam imperdiet lacus vehicula
+        ipsum aliquet, eu elementum mauris interdum. Nunc laoreet mollis faucibus. Aliquam non ligula. Suspendisse
+        dignissim non nunc eu hendrerit. Nulla consectetur diam leo, ut eleifend leo pellentesque ac. Donec in ante
+        vitae sem pretium malesuada sed sed ipsum. Curabitur sit amet dictum justo.
+      </div>
+    </div>
+
+    <h2>S-GRID D3</h2>
+    <div class='s-grid -d3 boxes'>
+      <!-- boxes is only for this page -->
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipis cing elit. Nullam mi nisi, blandit sit amet justo in, euismod
+        viverra augue. Cras et libero enim. Null am tristique at lorem quis pellentesque. Etiam imper diet lacus
+        vehicula ipsum aliquet, eu elem entum mauris interdum. Nunc laoreet mollis faucibus libero enim.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipis cing elit. Nullam mi nisi, blandit sit amet justo in, euismod
+        viverra augue. Cras et libero enim. Null am tristique at lorem quis pellentesque. Etiam imper diet lacus
+        vehicula ipsum aliquet, eu elem entum mauris interdum. Nunc laoreet mollis faucibus libero enim.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipis cing elit. Nullam mi nisi, blandit sit amet justo in, euismod
+        viverra augue. Cras et libero enim. Null am tristique at lorem quis pellentesque. Etiam imper diet lacus
+        vehicula ipsum aliquet, eu elem entum mauris interdum. Nunc laoreet mollis faucibus libero enim.
+      </div>
+    </div>
+
+    <h2>S-GRID T2 D4</h2>
+    <div class='s-grid -t2 -d4 boxes-alt'>
+      <div>
+        Fullam tristique at lorem quis pellen tesque. Etiam imperdiet lacus ipsum aliquet, eu elementum mauris inter
+        dum. Nunc laoreet mollis faucibus. Aliquam non ex ligula. Suspendisse dignissim non nunc eu hend rerit nulla
+        diam leo, ut elem fend leo pell tesque ac. Donec in ante vitae sem pretium mauada sed sed ipsum.
+      </div>
+      <div>
+        Fullam tristique at lorem quis pellen tesque. Etiam imperdiet lacus ipsum aliquet, eu elementum mauris inter
+        dum. Nunc laoreet mollis faucibus. Aliquam non ex ligula. Suspendisse dignissim non nunc eu hend rerit nulla
+        diam leo, ut elem fend leo pell tesque ac. Donec in ante vitae sem pretium mauada sed sed ipsum.
+      </div>
+      <div>
+        Fullam tristique at lorem quis pellen tesque. Etiam imperdiet lacus ipsum aliquet, eu elementum mauris inter
+        dum. Nunc laoreet mollis faucibus. Aliquam non ex ligula. Suspendisse dignissim non nunc eu hend rerit nulla
+        diam leo, ut elem fend leo pell tesque ac. Donec in ante vitae sem pretium mauada sed sed ipsum.
+      </div>
+      <div>
+        Fullam tristique at lorem quis pellen tesque. Etiam imperdiet lacus ipsum aliquet, eu elementum mauris inter
+        dum. Nunc laoreet mollis faucibus. Aliquam non ex ligula. Suspendisse dignissim non nunc eu hend rerit nulla
+        diam leo, ut elem fend leo pell tesque ac. Donec in ante vitae sem pretium mauada sed sed ipsum.
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .boxes > div {
+      background-color: var(--th-bg-1);
+      padding: var(--th-gap);
+      box-shadow: var(--th-shadow-2);
+      border-radius: var(--th-rounded-2);
+    }
+    .boxes-alt > div {
+      background-color: var(--th-bg-1);
+      padding: var(--th-gap);
+      box-shadow: var(--th-shadow-1);
+      border-radius: var(--th-rounded-1);
+    }
+  </style>
+</Layout>

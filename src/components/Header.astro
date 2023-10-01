@@ -1,0 +1,44 @@
+---
+import Nav from '../components/Nav.astro';
+import ButtonMode from './ButtonMode.astro';
+import ButtonSize from './ButtonSize.astro';
+import { Icon } from 'astro-iconify';
+const { headOverlay = false } = Astro.props;
+const SiteTitle = 'ไทยยูไอ';
+---
+
+<header id='head'>
+  <div class='brand'>
+    <div class='s-container'>
+      <a href='/' class='title' title='Home'>
+        <strong>{SiteTitle}</strong>
+      </a>
+      <small>เทมเพลตเว็บภาษาไทยพร้อมตัวอย่างโค้ด</small>
+      <div class='action'>
+        <ButtonMode />
+        <ButtonSize />
+      </div>
+    </div>
+  </div>
+</header>
+<Nav />
+
+<style lang='scss'>
+  header {
+    padding: 1rem 0;
+  }
+  .s-container {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+  }
+  .title {
+    font-size: 1.9rem;
+  }
+  .action {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+</style>

@@ -1,0 +1,96 @@
+---
+
+---
+
+<button id='size' title='Font Size Toggle'>
+  <span class='normal'>ก<small>+</small></span>
+  <span class='medium'>ก<small>+</small></span>
+  <span class='large'>ก<small>-</small></span>
+</button>
+<style>
+  #size {
+    border: 0;
+    background: none;
+    line-height: 1rem;
+    color: inherit;
+    transition: 0.3s ease;
+    padding: 0;
+  }
+
+  #size:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+  .normal {
+    display: flex;
+  }
+  .medium,
+  .large {
+    display: none;
+  }
+
+  html.large .normal,
+  html.medium .normal {
+    display: none;
+  }
+  html.large .large,
+  html.medium .medium,
+  html.normal .normal {
+    display: flex;
+  }
+</style>
+<script is:inline>
+const size = (() => {
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('size')) {
+    return localStorage.getItem('size');
+  }
+  return 'normal';
+})();
+
+const e = document.documentElement;
+if (size === 'large') {
+  e.classList.add('large');
+} else if (size === 'medium') {
+  e.classList.remove('large');
+  e.classList.add('medium');
+} else {
+  e.classList.remove('large');
+  e.classList.remove('medium');
+}
+
+window.localStorage.setItem('size', size);
+
+const ToggleSize = () => {
+  const e = document.documentElement;
+  if (e.classList.contains('large')) {
+    localStorage.setItem('size', 'normal');
+    e.classList.remove('large');
+    e.classList.remove('medium');
+  } else if (e.classList.contains('medium')) {
+    localStorage.setItem('size', 'large');
+    e.classList.add('large');
+    e.classList.remove('medium');
+  } else {
+    localStorage.setItem('size', 'medium');
+    e.classList.add('medium');
+    e.classList.remove('large');
+  }
+};
+
+document.getElementById('size').addEventListener('click', ToggleSize);
+</script>
+
+<style>
+  html.medium body {
+    font-size: 24px;
+  }
+  html.large body {
+    font-size: 32px;
+  }
+</style>

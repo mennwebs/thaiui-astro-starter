@@ -1,0 +1,144 @@
+---
+import { Icon } from 'astro-iconify';
+---
+
+<input type='checkbox' id='site-nav-open' aria-label='Toggle mobile menu' />
+<label class='site-nav-toggle' for='site-nav-open'>
+  <Icon name='menu' height='24' /><span>เมนู</span>
+</label>
+<div class='th-nav'>
+  <div class='s-container'>
+    <nav>
+      <label class='close' for='site-nav-open'>
+        <Icon name='close' height='24' /><span>ปิดเมนู</span>
+      </label>
+      <!-- เพิ่มเมนูตรงนี้ -->
+      <ul>
+        <li><a href='/about'>หน้าแรก</a></li>
+        <li><a href='/about'>เกี่ยวกับเรา</a></li>
+        <li><a href='/about'>ข่าวประชาสัมพันธ์</a></li>
+        <li><a href='/about'>บทความ</a></li>
+        <li><a href='/about'>เอกสารเผยแพร่</a></li>
+        <li><a href='/about'>ติดต่อเรา</a></li>
+        <li><a href='/about'>แจ้งเรื่องร้องเรียน</a></li>
+      </ul>
+      <label class='bg' for='site-nav-open'></label>
+    </nav>
+  </div>
+</div>
+<style lang='scss'>
+  .th-nav {
+    z-index: 100;
+    font-size: 1.125em;
+    background-color: var(--th-nav-bg);
+    position: sticky;
+    top: 0;
+    padding: 1rem 0;
+  }
+  a {
+    color: #fff;
+  }
+  #site-nav-open {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+  .site-nav-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    span {
+      padding-bottom: 3px; // สำหรับคำว่า เมนู
+    }
+  }
+  nav {
+    visibility: hidden;
+    opacity: 0;
+    width: 280px;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    right: 0;
+    z-index: 900;
+
+    box-shadow: var(--th-shadow-2);
+    transform: translateX(100%);
+    transition:
+      transform 0.4s linear,
+      opacity 0.2s linear 0.2s,
+      visibility 0s linear 0.4s;
+    padding: 20px 30px;
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .close {
+      padding: 0 0 20px;
+      justify-content: flex-end;
+      align-items: center;
+      display: flex;
+    }
+    .bg {
+      position: absolute;
+      height: 100%;
+      width: 100vw;
+      right: 100%;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+  input:checked ~ .site-nav {
+    transform: translateX(0%);
+    transition-delay: 0s;
+    opacity: 1;
+    visibility: visible;
+    transition-timing-function: cubic-bezier(0, 0.2, 0.25, 1), linear, linear;
+  }
+
+  // FOR DESKTOP
+  @media (min-width: 1024px) {
+    .site-nav-toggle {
+      display: none;
+    }
+    nav {
+      transform: translateX(0%);
+      opacity: 1;
+      visibility: visible;
+      background: none;
+      box-shadow: none;
+      width: unset;
+      position: relative;
+      top: unset;
+      right: unset;
+      height: unset;
+      padding: unset;
+      ul {
+        display: flex;
+        gap: var(--th-gap);
+      }
+      li {
+        margin-bottom: 0;
+      }
+      .close,
+      label {
+        display: none;
+      }
+    }
+    #size {
+      order: 4;
+    }
+    #mode {
+      order: 3;
+    }
+  }
+</style>
