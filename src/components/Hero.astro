@@ -10,6 +10,9 @@
     padding: calc(4 * var(--th-space)) var(--th-space) calc(3 * var(--th-space));
     background: linear-gradient(180deg, #e3edfe 0%, rgba(227, 237, 254, 0) 100%);
     margin-bottom: var(--th-space);
+    html.dark & {
+      background: linear-gradient(180deg, #111111 0%, rgba(26, 26, 26, 0) 100%);
+    }
   }
   h1 {
     font-size: 3.2em;
@@ -18,8 +21,5 @@
   h2 {
     font-size: 1.5em;
     font-weight: normal;
-  }
-  html.dark .hero {
-    background: linear-gradient(180deg, #111111 0%, rgba(26, 26, 26, 0) 100%);
   }
 </style>
