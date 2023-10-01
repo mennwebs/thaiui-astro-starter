@@ -10,7 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/prefetch": "^0.4.0",
     "astro": "^3.2.0",
+    "astro-critters": "^2.0.11",
     "astro-iconify": "^1.2.0"
   },
   "devDependencies": {
