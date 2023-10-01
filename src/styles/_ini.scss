@@ -98,6 +98,12 @@ fieldset {
   margin: 1rem 0;
   border-radius: var(--th-rounded-1);
 }
+code {
+  background-color: var(--th-bg-2);
+  padding: 0.25em 0.5em;
+  border-radius: var(--th-rounded-1);
+  border: 1px solid var(--th-border-2);
+}
 
 // HELPER
 ._sr {
@@ -134,20 +140,20 @@ fieldset {
   overflow-x: hidden;
 }
 
-// SEED LAYOUT
-.s-container {
-  max-width: var(--th-container-width);
+// LAYOUT
+.th-wrap {
+  max-width: var(--th-wrap-width);
   margin: 0 auto;
   padding: 0 1rem;
   @media (min-width: 1024px) {
     padding: 0 20px;
   }
 }
-.s-sec {
+.th-sec {
   padding-top: calc(2 * var(--th-space));
   padding-bottom: calc(2 * var(--th-space));
 }
-.s-grid {
+.th-grid {
   display: grid;
   grid-gap: var(--th-space);
   margin-bottom: var(--th-space);

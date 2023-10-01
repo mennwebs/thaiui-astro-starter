@@ -2,7 +2,7 @@
 @import 'var';
 @import 'fonts';
 @import 'reset';
-@import 'seed';
+@import 'ini';
 
 body {
   background-color: var(--th-bg-2);
@@ -14,8 +14,7 @@ body {
   }
 }
 h1 {
-  margin-top: 24px;
-  text-align: center;
+  margin-top: 1.5em;
 }
 main {
   padding-bottom: var(--th-space);
@@ -24,7 +23,7 @@ main {
     html.large & {
       font-size: 1em;
     }
-    .s-container {
+    .th-wrap {
       max-width: var(--th-content-width);
     }
     a {
