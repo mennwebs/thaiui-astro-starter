@@ -1,56 +1,69 @@
 ---
 import { Icon } from 'astro-iconify';
+const nav = [
+  { name: 'หน้าแรก', link: '/' },
+  { name: 'เกี่ยวกับเรา', link: '/about' },
+  { name: 'ข่าวประชาสัมพันธ์', link: '#' },
+  { name: 'บทความ', link: '#' },
+  { name: 'เอกสารเผยแพร่', link: '#' },
+  { name: 'ติดต่อเรา', link: '#' },
+  { name: 'แจ้งเรื่องร้องเรียน', link: '#' },
+];
 ---
 
-<input type='checkbox' id='site-nav-open' aria-label='Toggle mobile menu' />
-<label class='site-nav-toggle' for='site-nav-open'>
-  <Icon name='menu' height='24' /><span>เมนู</span>
-</label>
+<input type='checkbox' id='nav-open' aria-label='Toggle Mobile Menu' />
 <div class='th-nav'>
-  <div class='s-container'>
+  <div class='th-wrap'>
+    <label class='nav-toggle' for='nav-open'>
+      <Icon name='menu' height='24' /><span>เมนู</span>
+    </label>
     <nav>
-      <label class='close' for='site-nav-open'>
+      <label class='close' for='nav-open'>
         <Icon name='close' height='24' /><span>ปิดเมนู</span>
       </label>
       <!-- เพิ่มเมนูตรงนี้ -->
       <ul>
-        <li><a href='/about'>หน้าแรก</a></li>
-        <li><a href='/about'>เกี่ยวกับเรา</a></li>
-        <li><a href='/about'>ข่าวประชาสัมพันธ์</a></li>
-        <li><a href='/about'>บทความ</a></li>
-        <li><a href='/about'>เอกสารเผยแพร่</a></li>
-        <li><a href='/about'>ติดต่อเรา</a></li>
-        <li><a href='/about'>แจ้งเรื่องร้องเรียน</a></li>
+        {
+          nav.map((n) => (
+            <li>
+              <a href={n.link} rel='prefetch'>
+                {n.name}
+              </a>
+            </li>
+          ))
+        }
       </ul>
-      <label class='bg' for='site-nav-open'></label>
+      <label class='bg' for='nav-open'></label>
     </nav>
   </div>
 </div>
 <style lang='scss'>
   .th-nav {
-    z-index: 100;
-    font-size: 1.125em;
+    z-index: 900;
     background-color: var(--th-nav-bg);
-    position: sticky;
-    top: 0;
-    padding: 1rem 0;
+    color: var(--th-nav-text);
   }
   a {
-    color: #fff;
+    color: var(--th-nav-text);
+    &:hover {
+      color: var(--th-nav-text);
+      opacity: 0.8;
+    }
   }
-  #site-nav-open {
+  #nav-open {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
   }
-  .site-nav-toggle {
+  .nav-toggle {
     display: flex;
     align-items: center;
     gap: 6px;
-    span {
-      padding-bottom: 3px; // สำหรับคำว่า เมนู
-    }
+    position: fixed;
+    top: 1.25rem;
+    right: 1rem;
+    color: var(--th-head-text);
   }
   nav {
     visibility: hidden;
@@ -61,9 +74,9 @@ import { Icon } from 'astro-iconify';
     height: 100vh;
     right: 0;
     z-index: 900;
-
     box-shadow: var(--th-shadow-2);
     transform: translateX(100%);
+    background-color: var(--th-nav-bg);
     transition:
       transform 0.4s linear,
       opacity 0.2s linear 0.2s,
@@ -97,7 +110,7 @@ import { Icon } from 'astro-iconify';
       background-color: rgba(0, 0, 0, 0.5);
     }
   }
-  input:checked ~ .site-nav {
+  #nav-open:checked ~ .th-nav nav {
     transform: translateX(0%);
     transition-delay: 0s;
     opacity: 1;
@@ -107,8 +120,13 @@ import { Icon } from 'astro-iconify';
 
   // FOR DESKTOP
   @media (min-width: 1024px) {
-    .site-nav-toggle {
+    .nav-toggle {
       display: none;
+    }
+    .th-nav {
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
     }
     nav {
       transform: translateX(0%);
@@ -124,6 +142,7 @@ import { Icon } from 'astro-iconify';
       padding: unset;
       ul {
         display: flex;
+        flex-wrap: wrap;
         gap: var(--th-gap);
       }
       li {
@@ -133,12 +152,6 @@ import { Icon } from 'astro-iconify';
       label {
         display: none;
       }
-    }
-    #size {
-      order: 4;
-    }
-    #mode {
-      order: 3;
     }
   }
 </style>
