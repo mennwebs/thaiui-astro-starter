@@ -22,16 +22,12 @@ const { title, description, headOverlay, width = false } = Astro.props;
         width === 'full' ? (
           <slot />
         ) : (
-          <div class='s-container'>
+          <div class='th-wrap'>
             <slot />
           </div>
         )
       }
     </main>
     <Footer />
-    <script>
-      import '../scripts/instantpage.js';
-      import '../scripts/main.js';
-    </script>
   </body>
 </html>
